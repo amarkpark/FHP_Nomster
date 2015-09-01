@@ -1,1 +1,10 @@
 <h1>Nom Nom Nom *Crunch*</h1>
+	<div>
+		<%= @places.each do |place| %>
+		<h1><%= place.name %></h1><br />
+		<i><%= place.address %></i><br />
+		<p><%= place.description %></p><br />
+	</div>
+
+	<hr />
+<% end %>
