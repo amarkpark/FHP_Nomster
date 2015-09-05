@@ -1,0 +1,14 @@
+<!-- Ruby enabled HTML page for adding new record ~AMP -->
+<h1 style="text-align:center" class="velotitle">Enter Your Place Details</h1>
+<br class="clear"/>
+
+<div class="booyah-box col-xs-10 col-xs-offset-1">
+	<!-- <h1 style="text-align:center">Enter Your Place Details</h1> -->
+	<%= simple_form_for @places do |f| %>
+		<%= f.input :name %>
+		<%= f.input :address %>
+		<%= f.input :description %>
+		<br />
+		<%= f.submit "Add", :class => "btn btn-inverse" %>
+	<% end %>
+</div>

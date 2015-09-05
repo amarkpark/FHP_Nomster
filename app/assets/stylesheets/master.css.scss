@@ -41,6 +41,13 @@
     font-variant: small-caps;
 }
 
+/* .btn, .btn-primary {
+    font-family: 'carrois_gothic_scregular';
+	color: #5b5e5e;
+    background-color: #00cccc;
+    border-color: #00cccc;
+} */
+
 .pagination {
 	color: #00cccc;
     font-family: 'carrois_gothic_scregular';
@@ -58,12 +65,13 @@
 }
 
 .pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
-	color: #00cccc;
+	color: #5b5e5e;
     font-family: 'carrois_gothic_scregular';
 	background-color: rgba(227,227,231,0.3);}
 
 .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
     color: #000000;
+	font-weight: bold;
     background-color: #00cccc;
     border-color: #00cccc;
 }

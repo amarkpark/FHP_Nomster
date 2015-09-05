@@ -9,6 +9,9 @@ gem 'pg'
 # Use Bootstrap-sass for layout
 gem 'bootstrap-sass', '~> 3.3.4'
 
+# Use Simple Form for forms
+gem 'simple_form'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

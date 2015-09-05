@@ -6,8 +6,12 @@ class PlacesController < ApplicationController
 
 	# start added for pagination
 	def index
-	  @places = Place.search(params[:search], params[:page])
+		@places = Place.search(params[:search], params[:page])
 	end
 	# end added for pagination
+
+	def new
+		@places = Place.new
+	end
 
 end
