@@ -7,9 +7,15 @@
 	clear:both;
 }
 
+.center {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
+}
+
 .booyah-box {
-  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
-  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  /* -moz-box-shadow: 1px 1px 2px 0 #d0d0d0; */
+  /* -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0; */
   /* box-shadow: 1px 1px 2px 0 #d0d0d0; */
   box-shadow: 1px 1px 6px rgba(0, 204, 204, 0.75);
   /* background: #fff; */
@@ -33,6 +39,33 @@
     font-family: 'carrois_gothic_scregular';
     font-weight: bold;
     font-variant: small-caps;
+}
+
+.pagination {
+	color: #00cccc;
+    font-family: 'carrois_gothic_scregular';
+	box-shadow: 1px 1px 6px rgba(0, 204, 204, 0.75);
+	background-color: rgba(227,227,231,0.3);
+	border: 1px solid #ccc;
+	border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+	border-radius: 6px;
+}
+
+.pagination > li > a, .pagination > li > span, {
+	color: #00cccc;
+    font-family: 'carrois_gothic_scregular';
+	background-color: rgba(227,227,231,0.3);
+}
+
+.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
+	color: #00cccc;
+    font-family: 'carrois_gothic_scregular';
+	background-color: rgba(227,227,231,0.3);}
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+    color: #000000;
+    background-color: #00cccc;
+    border-color: #00cccc;
 }
 
 .velotitle {
@@ -83,3 +116,4 @@ p {
 body {
   background: url('/assets/connect.png');
 }
+

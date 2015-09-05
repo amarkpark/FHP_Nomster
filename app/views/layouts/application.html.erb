@@ -40,5 +40,16 @@
 
 <%= yield %>
 
+<br class="clear" />
+
+<footer>
+	<div class="container-fluid col-xs-4 col-xs-offset-4 center">
+		<%= will_paginate @places, renderer: BootstrapPagination::Rails %>
+	</div>
+</footer>
+
+
+
+
 </body>
 </html>
