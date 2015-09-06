@@ -7,13 +7,16 @@ gem 'rails', '4.0.1'
 gem 'pg'
 
 # Use Bootstrap-sass for layout
-gem 'bootstrap-sass', '~> 3.3.4'
+gem 'bootstrap-sass', '3.3.5.1'
 
 # Use Simple Form for forms
 gem 'simple_form'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
+
+# Added per Nomster Lesson 15 to fix BS glyph error
+gem 'sprockets', '2.11.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
