@@ -1,4 +1,8 @@
 Nomster::Application.routes.draw do
+
+  # Added by devise gem command "generate devise User"
+  devise_for :users
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

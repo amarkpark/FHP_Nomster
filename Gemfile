@@ -18,6 +18,9 @@ gem 'sass-rails'
 # Added per Nomster Lesson 15 to fix BS glyph error
 gem 'sprockets', '2.11.0'
 
+# Adding Devise for password auth, version for Heroku fix
+gem 'devise', '>= 3.2.4'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
