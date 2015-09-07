@@ -1,4 +1,6 @@
 class PlacesController < ApplicationController
+	before_action :authenticate_user!, :only => [:new, :create]
+
 	# disabled for pagination
 	#def index
 	#	@places = Place.all
@@ -15,9 +17,9 @@ class PlacesController < ApplicationController
 		@place = Place.new
 	end
 
-	# Note the use of the singular variable "place" here to create one record
+	# Changing from Place.create(places_params) to allow for places as defined in user.rb
 	def create
-		Place.create(places_params)
+		current_user.places.create(places_params)
 		redirect_to root_path
 	end
 

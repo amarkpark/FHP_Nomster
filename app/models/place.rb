@@ -8,4 +8,7 @@ class Place < ActiveRecord::Base
 	end
 	# end added for pagination
 
+	# Adding association to Users table
+	belongs_to :user
+
 end
