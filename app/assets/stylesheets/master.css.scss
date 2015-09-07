@@ -41,6 +41,10 @@
     font-variant: small-caps;
 }
 
+.navbar-inverse .navbar-nav, .navbar-inverse .navbar-nav .navbar-right {
+	font-family: 'carrois_gothic_scregular';
+}
+
 /* .btn, .btn-primary {
     font-family: 'carrois_gothic_scregular';
 	color: #5b5e5e;
@@ -123,6 +127,7 @@ p {
 
 
 body {
-  background: url('/assets/connect.png');
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	background: url('/assets/connect.png');
 }
 
