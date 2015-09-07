@@ -19,7 +19,7 @@ class PlacesController < ApplicationController
 
 	# Changing from Place.create(places_params) to allow for places as defined in user.rb
 	def create
-		current_user.places.create(places_params)
+		current_user.places.create(place_params)
 		redirect_to root_path
 	end
 
@@ -31,9 +31,15 @@ class PlacesController < ApplicationController
 		@place = Place.find(params[:id])
 	end
 
+	def update
+		@place = Place.find(params[:id])
+		@place.update_attributes(place_params)
+		redirect_to root_path
+	end
+
 	private
 
-	def places_params
+	def place_params
 		params.require(:place).permit(:name, :description, :address)
 	end
 
