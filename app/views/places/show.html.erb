@@ -1,0 +1,19 @@
+<h1 style="text-align:center" class="velotitle">Go Velo - Details</h1>
+<br class="clear"/>
+
+
+	<div class="booyah-box col-xs-10 col-xs-offset-1">
+		
+		<!-- Note: the @place variable,single record for specific record ID -->
+		<h2><%= @place.name %></h2>
+		<i><%= @place.address %></i><br /><br />
+		<p><%= @place.description %></p><br />
+	
+		<% if @place.user.present? %>
+			<small><%= @place.user.email %></small>
+		<% end %>
+
+	</div>
+	<br class="clear"/>
+
+
