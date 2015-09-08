@@ -10,5 +10,6 @@ class Place < ActiveRecord::Base
 
 	# Adding association to Users table
 	belongs_to :user
+	validates :name, :presence => true
 
 end
