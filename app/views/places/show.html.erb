@@ -14,8 +14,10 @@
 		<% end %>
 
 		<div class="pull-right">
-			<%= link_to "Edit", edit_place_path(@place), :class => "btn velobtn" %>
-			<%= link_to "Destroy", place_path(@place), :method => :delete, :data => {:confirm => "Are you sure you want to delete this?"},:class => "btn velobtn" %>
+			<% if current_user && current_user == @place.user %>
+				<%= link_to "Edit", edit_place_path(@place), :class => "btn velobtn" %>
+				<%= link_to "Destroy", place_path(@place), :method => :delete, :data => {:confirm => "Are you sure you want to delete this?"},:class => "btn velobtn" %>
+			<% end %>			
 		</div>
 
 	</div>
