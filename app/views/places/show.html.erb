@@ -4,6 +4,34 @@
 
 	<div class="booyah-box col-xs-10 col-xs-offset-1">
 		
+		<!-- Code for Google Map Below -->
+		<% if @place.latitude.present? && @place.longitude.present? %>
+		    <script>
+
+				function initMap() {
+				  var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
+
+				  var map = new google.maps.Map(document.getElementById('map'), {
+				    zoom: 12,
+				    center: myLatLng
+				  });
+
+				  var marker = new google.maps.Marker({
+				    position: myLatLng,
+				    map: map,
+				    title: 'Hello World!'
+				  });
+				}
+
+	    	</script>
+	    	<script async defer
+	        	src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
+
+		    <div id="map"></div>
+		<% end %>
+		<!-- Code for Google Map Above -->
+		<br />
+
 		<!-- Note: the @place variable,single record for specific record ID -->
 		<h2><%= @place.name %></h2>
 		<i><%= @place.address %></i><br /><br />
