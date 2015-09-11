@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Adding association to Places table for User_ID
+  # Adding association to places table for user_id
   has_many :places
+  # Adding association to comments table for user_id
+  has_many :comments
 end

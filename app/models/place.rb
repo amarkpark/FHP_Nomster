@@ -18,6 +18,8 @@ class Place < ActiveRecord::Base
 
 	# Adding association to Users table
 	belongs_to :user
+	# Adding association to Comments table:
+	has_many :comments 
 	# Adding connections to lat lng for Geocoder
 	geocoded_by :address
 	after_validation :geocode
