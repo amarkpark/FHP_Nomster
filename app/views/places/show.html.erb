@@ -52,7 +52,7 @@
 	<br class="clear"/>
 
 <div class="col-xs-10 col-xs-offset-1">
-	<%= simple_form_for @comment, :url => '#' do |f| %>
+	<%= simple_form_for @comment, :url => place_comments_path(@place) do |f| %>
 		<%= f.input :message %>
 		<%= f.input :rating %>
 		<%= f.submit "Add Your Comment", :class => 'btn velobtn' %>
