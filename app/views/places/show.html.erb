@@ -1,65 +1,66 @@
 <h1 style="text-align:center" class="velotitle">Go Velo - Details</h1>
 <br class="clear"/>
 
-
-	<div class="booyah-box col-xs-10 col-xs-offset-1">
-		
-		<!-- Code for Google Map Below -->
-		<% if @place.latitude.present? && @place.longitude.present? %>
-		    <script>
-
-				function initMap() {
-				  var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
-
-				  var map = new google.maps.Map(document.getElementById('map'), {
-				    zoom: 12,
-				    center: myLatLng
-				  });
-
-				  var marker = new google.maps.Marker({
-				    position: myLatLng,
-				    map: map,
-				    title: 'Hello World!'
-				  });
-				}
-
-	    	</script>
-	    	<script async defer
-	        	src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
-
-		    <div id="map"></div>
-		<% end %>
-		<!-- Code for Google Map Above -->
-		<br />
-
-		<!-- Note: the @place variable,single record for specific record ID -->
-		<h2><%= @place.name %></h2>
-		<i><%= @place.address %></i><br /><br />
-		<p><%= @place.description %></p><br />
+<div class="booyah-box col-xs-10 col-xs-offset-1">
 	
-		<% if @place.user.present? %>
-			<small><%= @place.user.email %></small>
-		<% end %>
+	<!-- Code for Google Map Below -->
+	<% if @place.latitude.present? && @place.longitude.present? %>
+	    <script>
 
-		<div class="pull-right">
-			<% if current_user && current_user == @place.user %>
-				<%= link_to "Edit", edit_place_path(@place), :class => "btn velobtn" %>
-				<%= link_to "Destroy", place_path(@place), :method => :delete, :data => {:confirm => "Are you sure you want to delete this?"},:class => "btn velobtn" %>
-			<% end %>			
+			function initMap() {
+			  var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
+
+			  var map = new google.maps.Map(document.getElementById('map'), {
+			    zoom: 12,
+			    center: myLatLng
+			  });
+
+			  var marker = new google.maps.Marker({
+			    position: myLatLng,
+			    map: map,
+			    title: 'Hello World!'
+			  });
+			}
+
+    	</script>
+    	<script async defer
+        	src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
+
+	    <div id="map"></div>
+	<% end %>
+	<!-- Code for Google Map Above -->
+	<br />
+
+	<!-- Note: the @place variable,single record for specific record ID -->
+	<h2><%= @place.name %></h2>
+	<i><%= @place.address %></i><br /><br />
+	<p><%= @place.description %></p><br />
+
+	<% if @place.user.present? %>
+		<small><%= @place.user.email %></small>
+	<% end %>
+
+	<div class="pull-right">
+		<% if current_user && current_user == @place.user %>
+			<%= link_to "Edit", edit_place_path(@place), :class => "btn velobtn" %>
+			<%= link_to "Destroy", place_path(@place), :method => :delete, :data => {:confirm => "Are you sure you want to delete this?"},:class => "btn velobtn" %>
+		<% end %>			
+	</div>
+	<br class="clear"/>
+	<br />
+	<h4 class="text-center">Comments</h4>
+	<br />
+	<% @place.comments.each do |comment| %>
+		<div>
+			<blockquote>
+				<%if comment.humanized_rating.present? %>
+					<i><%= comment.humanized_rating %></i> -
+				<% end %>
+				<%= comment.message %>
+				<small><%= comment.user.email %></small>
+			</blockquote>
 		</div>
-
-		<h2 class="text-center">Comments</h2>
-		<% @place.comments.each do |comment| %>
-			<div>
-				<blockquote>
-					<%if comment.humanized_rating.present? %>
-						<i><%= comment.humanized_rating %></i> -
-					<% end %>
-					<%= comment.message %>
-					<small><%= comment.user.email %></small>
-				</blockquote>
-			</div>
-		<% end %>
+	<% end %>
 
 	<!-- Button to trigger modal -->
 	<button type="button" class="btn velobtn pull-right" data-toggle="modal" data-target="#myModal">
@@ -67,8 +68,8 @@
 	</button>
 	<!-- end button to trigger modal -->
 
-	</div>
-	<br class="clear"/>
+</div>
+<br class="clear"/>
 
 
 <!-- Add A Comment Modal -->
@@ -79,17 +80,17 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Add A Comment</h4>
       </div>
-      <div class="modal-body">
-        	<%= simple_form_for @comment, :url => place_comments_path(@place) do |f| %>
-				<%= f.input :message %>
-				<%= f.input :rating, :as => :select, :collection => Comment::RATINGS %>
-				<br />
-				<div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        <%= f.submit "Add Your Comment", :class => 'btn velobtn' %>
-			    </div>				
-			<% end %>
-      </div>
+      <%= simple_form_for @comment, :url => place_comments_path(@place) do |f| %>
+    	<div class="modal-body">       	
+			<%= f.input :message %>
+			<%= f.input :rating, :as => :select, :collection => Comment::RATINGS %>
+		</div>
+
+		<div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <%= f.submit "Add Your Comment", :class => 'btn velobtn' %>
+	    </div>							
+      <% end %>
     </div>
   </div>
 </div>
