@@ -27,6 +27,9 @@ gem 'geocoder'
 # Adding Gem to store sensitive data in an ENV variable
 gem 'figaro', '>= 1.0.0'
 
+# Adding fog gem for carrierwave <=> AWS S3 communications
+gem 'fog', '~> 1.3.1'
+
 # Adding Gem for Carrierwave for Image Uploads
 gem 'carrierwave'
 
