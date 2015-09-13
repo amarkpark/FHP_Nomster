@@ -42,10 +42,31 @@
 
 	<div class="pull-right">
 		<% if current_user && current_user == @place.user %>
+
+			<button type="button" class="btn velobtn" data-toggle="modal" data-target="#myModal">Add A Picture</button>
+
 			<%= link_to "Edit", edit_place_path(@place), :class => "btn velobtn" %>
 			<%= link_to "Destroy", place_path(@place), :method => :delete, :data => {:confirm => "Are you sure you want to delete this?"},:class => "btn velobtn" %>
 		<% end %>			
 	</div>
+
+	<!-- Display for Photos -->
+	<br class="clear"/>
+	<br />
+	<h4 class="text-center">Pictures</h4>
+	<br />
+	<% Photo.all.inspect %>
+	<% @place.photos.each do |photo| %>
+		<div class="col-xs-8 col-xs-offset-1">
+			<%= image_tag photo.picture, :class => 'img-responsive' %>
+		</div><br />
+		<div class="col-xs-8 col-xs-offset-1">
+			<%= photo.caption %>
+		</div>
+	<% end %>
+	<!-- end Display for Photos -->
+
+	<!-- display Comments -->
 	<br class="clear"/>
 	<br />
 	<h4 class="text-center">Comments</h4>
@@ -61,16 +82,39 @@
 			</blockquote>
 		</div>
 	<% end %>
+	<!-- end display Comments -->
 
-	<!-- Button to trigger modal -->
-	<button type="button" class="btn velobtn pull-right" data-toggle="modal" data-target="#myModal">
-	  Add Your Comment
-	</button>
-	<!-- end button to trigger modal -->
+	<!-- Button to trigger Comment modal -->
+	<button type="button" class="btn velobtn pull-right" data-toggle="modal" data-target="#myModal">Add Your Comment</button>
+	<!-- end button to trigger Comment modal -->
 
 </div>
 <br class="clear"/>
 
+<!-- Add A Picture Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add A Picture</h4>
+      </div>
+      <%= simple_form_for @photo, :url => place_photos_path(@place) do |f| %>
+    	<div class="modal-body">       	
+			<%= f.input :picture, as: :file %>
+			<%= f.input :remote_picture_url, label: 'or picture URL' %>
+			<%= f.input :caption %>
+		</div>
+
+		<div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <%= f.submit "Add A Picture", :class => 'btn velobtn' %>
+	    </div>							
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- end Add A Picture Modal -->
 
 <!-- Add A Comment Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

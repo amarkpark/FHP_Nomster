@@ -27,6 +27,9 @@ gem 'geocoder'
 # Adding Gem to store sensitive data in an ENV variable
 gem 'figaro', '>= 1.0.0'
 
+# Adding Gem for Carrierwave for Image Uploads
+gem 'carrierwave'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
