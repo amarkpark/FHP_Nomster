@@ -6,32 +6,32 @@
 	<div class="booyah-box col-xs-10 col-xs-offset-1">
 		<h2><%= link_to place.name, place_path(place) %></h2>
 		<i><%= place.address %></i><br /><br />
-		<p><%= place.description %></p><br />
-	
+		<p><%= place.description %></p>
 		<% if place.user.present? %>
+			<br />
 			<small><%= place.user.email %></small>
 		<% end %>
-		<br class="clear" />
 
 		<% if place.photos.present? %>
+			<br class="clear" />
 			<br />
 			<div class="col-xs-8 col-xs-offset-1">
-				<%= image_tag place.photos.last.picture, :class => 'img-responsive' %>
+				<%= image_tag place.photos.first.picture, :class => 'img-responsive' %>
 			</div><br />
 			<div class="col-xs-8 col-xs-offset-1">
-				<%= place.photos.last.caption %>
+				<%= place.photos.first.caption %>
 			</div>
 			<br />
 		<% end %>
-		<br class="clear"/>
 
 		<% if place.comments.present? %>
+			<br class="clear"/>
 			<br />
 			<blockquote>
-			<%if place.comments.last.humanized_rating.present? %>
-				<i><%= place.comments.last.humanized_rating %></i> -
+			<%if place.comments.first.humanized_rating.present? %>
+				<i><%= place.comments.first.humanized_rating %></i> -
 			<% end %>
-			<%= place.comments.last.message %>
+			<%= place.comments.first.message %>
 			<small><%= place.comments.last.user.email %></small>
 			</blockquote>
 		<% end %>

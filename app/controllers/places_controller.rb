@@ -60,8 +60,9 @@ class PlacesController < ApplicationController
 			return render :text => "Not allowed to delete this record.", :status => :forbidden
 		end
 
-		@place.destroy
 		# want to add this line @place.photos.destroy
+		# want to add this line @place.comments.destroy
+		@place.destroy
 		redirect_to root_path
 	end
 

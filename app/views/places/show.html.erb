@@ -43,7 +43,7 @@
 	<div class="pull-right">
 		<% if current_user && current_user == @place.user %>
 
-			<button type="button" class="btn velobtn" data-toggle="modal" data-target="#myModal">Add A Picture</button>
+			<button type="button" class="btn velobtn" data-toggle="modal" data-target="#PicModal">Add A Picture</button>
 
 			<%= link_to "Edit", edit_place_path(@place), :class => "btn velobtn" %>
 			<%= link_to "Destroy", place_path(@place), :method => :delete, :data => {:confirm => "Are you sure you want to delete this?"},:class => "btn velobtn" %>
@@ -54,7 +54,6 @@
 	<br class="clear"/>
 	<br />
 	<h4 class="text-center">Pictures</h4>
-	<br />
 	<%= @place.photos.inspect %> <!-- for troubleshooting -->
 	<br />
 	<% @place.photos.each do |photo| %>
@@ -72,6 +71,7 @@
 	<br class="clear"/>
 	<br />
 	<h4 class="text-center">Comments</h4>
+	<%= @place.comments.inspect %> <!-- for troubleshooting -->
 	<br />
 	<% @place.comments.each do |comment| %>
 		<div>
@@ -87,14 +87,14 @@
 	<!-- end display Comments -->
 
 	<!-- Button to trigger Comment modal -->
-	<button type="button" class="btn velobtn pull-right" data-toggle="modal" data-target="#myModal">Add Your Comment</button>
+	<button type="button" class="btn velobtn pull-right" data-toggle="modal" data-target="#CommentModal">Add Your Comment</button>
 	<!-- end button to trigger Comment modal -->
 
 </div>
 <br class="clear"/>
 
 <!-- Add A Picture Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="PicModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -119,7 +119,7 @@
 <!-- end Add A Picture Modal -->
 
 <!-- Add A Comment Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="CommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
