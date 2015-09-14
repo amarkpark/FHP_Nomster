@@ -1,8 +1,5 @@
 class PhotosController < ApplicationController
 	before_action :authenticate_user!
-	def show
-		@photos = Photo.all
-	end
 
 	def create
 		@place = Place.find(params[:place_id])

@@ -61,6 +61,7 @@ class PlacesController < ApplicationController
 		end
 
 		@place.destroy
+		# want to add this line @place.photos.destroy
 		redirect_to root_path
 	end
 

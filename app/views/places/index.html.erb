@@ -11,6 +11,18 @@
 		<% if place.user.present? %>
 			<small><%= place.user.email %></small>
 		<% end %>
+		<br class="clear" />
+
+		<% if place.photos.present? %>
+			<br />
+			<div class="col-xs-8 col-xs-offset-1">
+				<%= image_tag place.photos.last.picture, :class => 'img-responsive' %>
+			</div><br />
+			<div class="col-xs-8 col-xs-offset-1">
+				<%= place.photos.last.caption %>
+			</div>
+			<br />
+		<% end %>
 		<br class="clear"/>
 
 		<% if place.comments.present? %>
@@ -23,6 +35,7 @@
 			<small><%= place.comments.last.user.email %></small>
 			</blockquote>
 		<% end %>
+
 
 	</div>
 	<br class="clear"/>
