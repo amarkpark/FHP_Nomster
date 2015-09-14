@@ -55,7 +55,7 @@
 	<br />
 	<h4 class="text-center">Pictures</h4>
 	<br />
-	<%= Photo.all.inspect %> <!-- for troubleshooting -->
+	<%= @place.photos.inspect %> <!-- for troubleshooting -->
 	<br />
 	<% @place.photos.each do |photo| %>
 		<div class="col-xs-8 col-xs-offset-1">
