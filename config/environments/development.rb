@@ -1,4 +1,17 @@
 Nomster::Application.configure do
+  # Adding a snippit to allow me to mail through gmail to test mailers
+  #config.action_mailer.delivery_method = :smtp
+
+  #config.action_mailer.smtp_settings = {
+  #  address: "smtp.gmail.com",
+  #  port: 587,
+  #  domain: "ampnomsterapp.com",
+  #  authentication: "plain",
+  #  enable_starttls_auto: true,
+  #  user_name: ENV['GMAIL_ADDRESS'],
+  #  password: ENV['GMAIL_PASSWORD']
+  #}
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Support for Devise Gem (Lesson 16)
