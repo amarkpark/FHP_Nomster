@@ -13,6 +13,24 @@
      margin-right: auto;
 }
 
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    height: 550px;
+    width: 100%;
+}
+
+.carousel-caption {
+    font-size: 36px;
+    text-shadow: rgba(0,0,0,0.95) 2px 2px;
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    left: 0;
+    padding-top: 0;
+}
+
+.carousel {
+  box-shadow: 0px 3px 8px #2a2a2a;
+}
+
 .booyah-box {
   /* -moz-box-shadow: 1px 1px 2px 0 #d0d0d0; */
   /* -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0; */
@@ -32,6 +50,7 @@
   background:url('/assets/stardust.png');
   border-radius: 0;
   box-shadow: 1px 1px 6px rgba(0, 204, 204, 0.75);
+  margin-bottom: 0;
 }
 
 .navbar-inverse .navbar-brand {
