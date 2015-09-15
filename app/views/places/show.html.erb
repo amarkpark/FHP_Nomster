@@ -55,13 +55,16 @@
 	<br class="clear"/>
 	<br />
 	<h4 class="text-center">Pictures</h4>
-	<%= @place.photos.inspect %> <!-- for troubleshooting -->
+	<% @place.photos.inspect %> <!-- for troubleshooting -->
 	<br />
 	<% @place.photos.each do |photo| %>
-		<div class="col-xs-8 col-xs-offset-1">
+		<br class="clear" />
+		<br />
+		<div class="center placepic">
 			<%= image_tag photo.picture, :class => 'img-responsive' %>
-		</div><br />
-		<div class="col-xs-8 col-xs-offset-1">
+		</div>
+		<br class="clear" />
+		<div style="text-align:center">
 			<%= photo.caption %>
 		</div>
 		<br />
@@ -72,7 +75,7 @@
 	<br class="clear"/>
 	<br />
 	<h4 class="text-center">Comments</h4>
-	<%= @place.comments.inspect %> <!-- for troubleshooting -->
+	<% @place.comments.inspect %> <!-- for troubleshooting -->
 	<br />
 	<% @place.comments.each do |comment| %>
 		<div>

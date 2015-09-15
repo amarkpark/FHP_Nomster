@@ -80,13 +80,16 @@
 		<% if place.photos.present? %>
 			<br class="clear" />
 			<br />
-			<div class="col-xs-8 col-xs-offset-1">
+			<div align="center" class="container-fluid col-xs-12">
+				<div class="indexpic">
 				<%= image_tag place.photos.first.picture, :class => 'img-responsive' %>
-			</div><br />
-			<div class="col-xs-8 col-xs-offset-1">
+				</div>
+			</div>
+			<br class="clear" />
+			<br />
+			<div style="text-align:center">
 				<%= place.photos.first.caption %>
 			</div>
-			<br />
 		<% end %>
 
 		<% if place.comments.present? %>
@@ -106,7 +109,7 @@
 <% end %>
 
 <footer>
-	<div align="center" class="container-fluid col-xs-10 col-xs-offset-1">
+	<div align="center" class="container-fluid col-xs-12">
 		<%= will_paginate @places, renderer: BootstrapPagination::Rails %>
 	</div>
 </footer>
