@@ -5,13 +5,46 @@
 <div class="booyah-box col-xs-10 col-xs-offset-1">
 	<div class="col-xs-5">
 		<h4><%= @user.email %></h4>
+		<%= image_tag 'blankuser.png' %>
 	</div>
-	<div class="col-xs-5" style="pull-right">
-		<h3>Member Since: <%=@user.created_at.strftime("%B %d, %Y") %></h3>
+	<div class="col-xs-5" style="float:right">
+		<h4>Member Since:<h4>
+		<h4><%=@user.created_at.strftime("%B %d, %Y") %></h4>
 		<br />
-		<p>You have posted <%= @user.comments.count %> comnents.</p>
-		<p>Including <%= @user.comments.where(:rating => '5_stars').count %> Five Star Review(s).</p>
+		<h2>You have posted:</h2><br />
+		<h2><%= @user.comments.count %> comnents.</h2><br />
+		<h2><%= @user.comments.where(:rating => '5_stars').count %> Five Star Review(s).</h2>
 	</div>
+	<br class="clear"/>
+	<br />
+	<h4 class="text-center">Your Comments</h4>
+	<% @user.comments.inspect %> <!-- for troubleshooting -->
+	<div class="col-xs-8 col-xs-offset-1">
+	<br />
+	<!-- display comments below -->
+	<% @user.comments.each do |comment| %>
+		<div>
+
+			<blockquote>
+				<h3 style="margin-bottom:10px"><%= link_to comment.place.name, place_path(comment.place) %></h3>
+				<%if comment.humanized_rating.present? %>
+					<i><%= comment.humanized_rating %></i> -
+				<% end %>
+				<%= comment.message %>
+				<small><%= comment.user.email %></small>
+			</blockquote>
+		</div>
+	<% end %>
+	<!-- end display Comments -->
+	</div>
+	<br class="clear"/>
+	<br />
+	<h4 class="text-center">Your Bike Shops</h4>
+	<!-- display Places below -->
+
+	<!-- end display Places -->
+
+	<div class="clear"></div>
 </div>
 <br class="clear" /><br />
 <% @user.inspect %> <!-- for troubleshooting -->
