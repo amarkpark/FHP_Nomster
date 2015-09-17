@@ -19,9 +19,9 @@ class Place < ActiveRecord::Base
 	# Adding association to Users table
 	belongs_to :user
 	# Adding association to Comments table:
-	has_many :comments 
+	has_many :comments, :dependent => :destroy 
 	# Adding association to Photos has_many to allow for future photo through: :comment 
-	has_many :photos
+	has_many :photos, :dependent => :destroy
 	# Adding connections to lat lng for Geocoder
 	geocoded_by :address
 	after_validation :geocode
