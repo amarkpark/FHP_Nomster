@@ -1,6 +1,9 @@
 Nomster::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Support for Devise Gem (Nomster Lesson 16/ TDD 9)
+  config.action_mailer.default_url_options = { :host => 'loopbackdomaintest.com' }
+
   # The test environment is used exclusively to run your application's
   # test suite. You never need to work with it otherwise. Remember that
   # your test database is "scratch space" for the test suite and is wiped
